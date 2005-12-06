@@ -2,7 +2,7 @@
 Summary:	Widget Building Tool
 Name:		wbuild
 Version:	3.0
-Release:	0.1
+Release:	0.2
 License:	(?)
 Group:		Applications/X11
 Source0:	ftp://sunsite.unc.edu/pub/X11/fwf/%{name}-%{version}.tar.gz
@@ -20,7 +20,7 @@ WBuild
 %build
 
 %{__make} \
-	CFLAGS="%{rpmcflags} -DINITFILE=\"'/etc/wbuild.cfg'\" "\
+	CFLAGS="%{rpmcflags} -DINITFILE='\"/etc/wbuild.cfg\"' "\
 	LDFLAGS="%{rpmldflags}"
 
 %install
