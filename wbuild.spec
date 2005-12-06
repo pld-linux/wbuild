@@ -20,7 +20,7 @@ WBuild
 %build
 
 %{__make} \
-	CFLAGS="%{rpmcflags}" \
+	CFLAGS="%{rpmcflags} -DINITFILE=\"'/etc/wbuild.cfg'\" "\
 	LDFLAGS="%{rpmldflags}"
 
 %install
