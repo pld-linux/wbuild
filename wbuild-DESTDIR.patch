@@ -1,0 +1,30 @@
+--- wbuild-3.0/Makefile	1995-08-30 17:54:35.000000000 +0200
++++ wbuild-3.0/Makefile.ch	2005-12-06 18:48:23.000000000 +0100
+@@ -1,7 +1,7 @@
+ # Where do you want the configuration file to live:
+ 
+-  INITFILE    = `pwd`/wbuild.cfg
+-  #INITFILE   = /usr/local/lib/wbuild.cfg
++  #INITFILE    = `pwd`/wbuild.cfg
++  INITFILE   = /etc/wbuild.cfg
+ 
+ # Compiler flags, change as needed.
+ # SGI seems to need -ansiposix
+@@ -18,7 +18,7 @@
+ 
+ # Where should the executable and the man page be installed?
+ 
+-  DEST	      = $(HOME)/bin
++  DEST	      = $(DESTDIR)/usr/bin
+   MANDIR      =	$(HOME)/Man/man1
+ 
+ # If alloca() is not defined on your system, you might need
+@@ -152,7 +152,7 @@
+ 		@if [ $(DEST) != . ]; then \
+ 		  (rm -f $(DEST)/$(PROGRAM); $(INSTALL) $(PROGRAM) $(DEST)); fi
+ 		@echo Copying wbuild.cfg to $(INITFILE)
+-		@$(INSTALL) wbuild.cfg $(INITFILE)
++		@$(INSTALL) wbuild.cfg $(DESTDIR)/$(INITFILE)
+ 
+ lint:		$(LINTLIBS) $(SRCS) $(HDRS) $(EXTHDRS) $(SRCS:.web=.c)
+ 		lint $(LINTFLAGS) $(LINTLIBS) $(SRCS) $(SRCS:.web=.c)
