@@ -1,5 +1,5 @@
-#
 Summary:	Widget Building Tool
+Summary(pl):	Narzêdzie do budowania widgetów
 Name:		wbuild
 Version:	3.0
 Release:	0.2
@@ -11,24 +11,23 @@ Patch0:		%{name}-DESTDIR.patch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-WBuild
+Widget Building Tool.
+
+%description -l pl
+Narzêdzie do budowania widgetów.
 
 %prep
 %setup -q
 %patch0 -p1
 
 %build
-
 %{__make} \
-	CFLAGS="%{rpmcflags} -DINITFILE='\"/etc/wbuild.cfg\"' "\
+	CFLAGS="%{rpmcflags} -DINITFILE='\"%{_sysconfdir}/wbuild.cfg\"' "\
 	LDFLAGS="%{rpmldflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-# create directories if necessary
-install -d $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/usr/bin
-install -d $RPM_BUILD_ROOT/etc
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_sysconfdir}}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -40,4 +39,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README
 %attr(755,root,root) %{_bindir}/wbuild
-%config(noreplace) /etc/wbuild.cfg
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/wbuild.cfg
