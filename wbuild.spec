@@ -1,5 +1,5 @@
 Summary:	Widget Building Tool
-Summary(pl.UTF-8):   Narzędzie do budowania widgetów
+Summary(pl.UTF-8):	Narzędzie do budowania widgetów
 Name:		wbuild
 Version:	3.0
 Release:	0.2
