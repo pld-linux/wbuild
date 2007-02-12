@@ -1,5 +1,5 @@
 Summary:	Widget Building Tool
-Summary(pl):	Narzêdzie do budowania widgetów
+Summary(pl.UTF-8):   NarzÄ™dzie do budowania widgetÃ³w
 Name:		wbuild
 Version:	3.0
 Release:	0.2
@@ -13,8 +13,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Widget Building Tool.
 
-%description -l pl
-Narzêdzie do budowania widgetów.
+%description -l pl.UTF-8
+NarzÄ™dzie do budowania widgetÃ³w.
 
 %prep
 %setup -q
